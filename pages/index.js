@@ -1,10 +1,8 @@
-import {useState, useEffect, useRef} from 'react'
 import cx from 'classnames'
 import Header from 'sections/header'
 import QuoteMachine from 'sections/quote-machine'
 
 import layout from 'styles/layout.module.scss'
-import global from 'styles/global.module.scss'
 
 export default () => {
   return (

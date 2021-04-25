@@ -7,22 +7,22 @@ import layout from 'styles/layout.module.scss'
 import global from 'styles/global.module.scss'
 
 export default (props) => {
-	let value = props.value;
-	let  typing = (e) =>{
-        let newSet = {...value};
-        let id = e.target.id,
-         inner = e.target.value;
-        newSet[id] = inner;
-        props.update({...newSet}, "infoForm");    
-	}
-	
+  let value = props.value;
+  let typing = (e) => {
+    let newSet = { ...value };
+    let id = e.target.id,
+      inner = e.target.value;
+    newSet[id] = inner;
+    props.update({ ...newSet }, "infoForm");
+  }
+
   return (
     <div>
       <h3>
         Get Your Quote
-				</h3>
-      <form className="d-flex flex-column flex-wrap flex-md-row justify-content-center align-items-around">
-        <div className="my-4 col-12 col-md-6">
+      </h3>
+      <form className={cx(layout.f_col, layout.f_wrap, layout.justify_center, layout.align_around)}>
+        <div className={cx(layout.col_12_mob, layout.col_7)}>
           <Input
             id='name'
             value={value.name}
@@ -31,7 +31,7 @@ export default (props) => {
             onChange={typing}
           />
         </div>
-        <div className="my-4 col-12 col-md-6">
+        <div className={cx(layout.col_10_mob, layout.col_5)}>
           <Input
             id='phone'
             value={value.phone}
@@ -40,7 +40,7 @@ export default (props) => {
             onChange={typing}
           />
         </div>
-        <div className="my-4 col-12">
+        <div className={cx(layout.col_10_mob, layout.col_5)}>
           <Input
             id='email'
             value={value.email}
@@ -49,11 +49,11 @@ export default (props) => {
             onChange={typing}
           />
         </div>
-        <div className="my-4 col-12">
-          <textarea className="pl-2" placeholder="Message" id="message" onChange={typing}>{value.message}</textarea>
+        <div className={cx(layout.col_10)}>
+          <textarea placeholder="Message" id="message" onChange={typing}>{value.message}</textarea>
         </div>
-        <div className="my-4 pr-md-5 pr-3 d-flex justify-content-end col-12">
-          <Button size='lg' type='button' simple onClick={props.submitForm}>Submit Form</Button>
+        <div className={cx(layout.f_row, layout.justify_end, layout.col_10)}>
+          <Button type='button' simple onClick={props.submitForm}>Submit Form</Button>
         </div>
       </form>
     </div>

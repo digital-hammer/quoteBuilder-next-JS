@@ -5,21 +5,36 @@ import layout from 'styles/layout.module.scss'
 import global from 'styles/global.module.scss'
 
 export default (props) => {
+  const {
+    pages = 0,
+    design = 0,
+    programming = 0
+  } = props
 
   return (
-    <div className="price-card p-3">
-      <h5 id="pages" className={props.pages === 0 ? "d-none" : "d-block"}>
-        Basic Site Needs: <span className="float-right">$ {props.pages}</span>
-      </h5>
-      <h5 id="design" className={props.design === 0 ? "d-none" : "d-block"}>
-        Dynamic Design: <span className="float-right">$ {props.design}</span>
-      </h5>
-      <h5 id="programming" className={props.programming === 0 ? "d-none" : "d-block"}>
-        Programming: <span className="float-right">$ {props.programming}</span>
-      </h5>
+    <div className={global.price_card}>
+      {pages > 0 && (
+        <h5>
+          Basic Site Needs:
+          <span className={global.float_right}>$ {pages}</span>
+        </h5>
+      )}
+      {pages > 0 && (
+        <h5>
+          Dynamic Design:
+          <span className={global.float_right}>$ {design}</span>
+        </h5>
+      )}
+      {pages > 0 && (
+        <h5>
+          Programming:
+          <span className={global.float_right}>$ {programming}</span>
+        </h5>
+      )}
       <hr />
-      <h4 className="px-3 bold">
-        Subtotal:  <span className="float-right">$ {props.pages + props.design + props.programming}</span>
+      <h4 className={global.bold}>
+        Subtotal:
+        <span className={global.float_right}>$ {pages + design + programming}</span>
       </h4>
     </div>
   )

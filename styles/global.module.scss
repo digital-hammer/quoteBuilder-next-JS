@@ -1,7 +1,7 @@
 @import 'styles/theme';
 
 .card {
-  box-shadow: 0 0 -1px 20px rgba(50, 50, 50, .5);
+  box-shadow: 0 0 20px -1px rgba(50, 50, 50, .5);
 }
 
 .thin {
@@ -56,32 +56,37 @@
   color: $complementary;
 }
 
-.animation {
-  transition: .5s ease-in-out;
-  transition-delay: .2s;
+.price_card {
+  border: none;
+  border-radius: 6px;
+  overflow: hidden;
+  transition: .1s;
+  width: 100%;
+  background-color: #f1f1f1;
+  padding: 20px;
+}
 
-  &.animate_in_top {
-    opacity: 0;
-    transform: translateY(-50px);
-  }
+.price_card h5 {
+  width: 100%
+}
 
-  &.animate_in_bottom {
-    opacity: 0;
-    transform: translateY(50px);
-  }
-  
-  &.animate_in_left {
-    opacity: 0;
-    transform: translateX(-50px);
-  }
-  
-  &.animate_in_right {
-    opacity: 0;
-    transform: translateX(50px);
-  }
+.page_num input[type=number]{
+  width: auto !important;
+  position: relative;
+} 
 
-  &.animate_in_end {
-    opacity: 1;
-    transform: translate(0);
-  }
+.step {
+  margin: 10px;
+  padding: 12px 12px 5px 20px !important;
+  box-shadow: 1px 2px 16px -2px rgba(50,50,50,.3);
+  border-left: 1px solid rgb(175, 70, 211);
+  border-radius: 4px;
+}
+
+.description {
+  text-align: left;
+}
+
+.float_right {
+  float: right;
 }

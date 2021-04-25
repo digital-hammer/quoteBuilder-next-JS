@@ -1,6 +1,6 @@
-import { useState, useEffect, useRef } from 'react'
 import cx from 'classnames'
 import Input from 'components/input'
+import Scale from './scale.js';
 
 import layout from 'styles/layout.module.scss'
 import global from 'styles/global.module.scss'
@@ -37,126 +37,68 @@ export default (props) => {
 
   return (
     <div subtotal={value.subtotal}>
-      <form className="d-flex flex-column flex-wrap flex-md-row justify-content-start align-items-around">
-        <h3>
-          Basic Pages Needs
-					</h3>
-        <h5>
-          Do you plan to include any of these types of pages in your site?
-					</h5>
-        <div className="col-12 col-md-6 d-flex flex-column justify-content-start align-items-start">
-
-          <Input
-            id='option1'
-            value={220}
-            label='Blog'
-            type='checkbox'
-            checked={value.option1}
-            onChange={update}
-            definition='Blog Page'
-          />
-
-          <Input
-            id='option2'
-            value={330}
-            label='Events'
-            type='checkbox'
-            checked={value.option2}
-            onChange={update}
-            definition='Events Page'
-          />
-          <Input
-            id='option3'
-            value={220}
-            label='Specials'
-            type='checkbox'
-            checked={value.option3}
-            onChange={update}
-            definition='Specials Page'
-          />
-          <Input
-            id='option4'
-            value={220}
-            label={`FAQ's`}
-            type='checkbox'
-            checked={value.option4}
-            onChange={update}
-            definition=''
-          />
-          <Input
-            id='option5'
-            value={220}
-            label='Staff/Board Members'
-            type='checkbox'
-            checked={value.option5}
-            onChange={update}
-            definition='Staff or Board Members Page'
-          />
-          <Input
-            id='option6'
-            value={220}
-            label='News/Press Releases'
-            type='checkbox'
-            checked={value.option6}
-            onChange={update}
-            definition='News or Press Release Page'
-          />
-          <Input
-            id='option7'
-            value={330}
-            label='Clients'
-            type='checkbox'
-            checked={value.option7}
-            onChange={update}
-            definition='Clients Page'
-          />
-          <Input
-            id='option8'
-            value={220}
-            label='Resources or Documentation Library'
-            type='checkbox'
-            checked={value.option8}
-            onChange={update}
-            definition='Resources or Documentation Library Page'
-          />
-          <Input
-            id='option9'
-            value={330}
-            label='Projects/Portfolio'
-            type='checkbox'
-            checked={value.option9}
-            onChange={update}
-            definition='Projects or Portfolio Page'
-          />
-          <Input
-            id='option10'
-            value={110}
-            label='Sponsors'
-            type='checkbox'
-            checked={value.option10}
-            onChange={update}
-            definition='Sponsors Page'
-          />
-          <Input
-            id='option11'
-            value={220}
-            label='Careers/Jobs'
-            type='checkbox'
-            checked={value.option11}
-            onChange={update}
-            definition='Careers or Jobs Page'
-          />
-          <Input
-            id='option12'
-            value={110}
-            label='Testimonials'
-            type='checkbox'
-            checked={value.option12}
-            onChange={update}
-            definition='Testeomnials Page'
-          />
-        </div>
-      </form>
+ <form className={cx(layout.f_col, layout.f_wrap, layout.justify_center, layout.align_around)}>
+      <h3>Back End Needs</h3>
+    <div className={cx(layout.f_col, layout.f_wrap, layout.justify_start, layout.align_start)}>
+        <Input
+          id='option1'
+          value={500}
+          label='Customer Login'
+          type='checkbox'
+          checked={value.option1}
+          onChange={update}
+        />
+        {value.option1 ? <Scale
+          id="sudo1"
+          onChange={updateScale}
+          options={[
+            { name: 'opt1', definition: 'Basic login to veiw members only features or information', value: 500, checked: value.sudo1.options[0] },
+            { name: 'opt2', definition: 'Including the basics customers will also have a profile section where they can customize their info.', value: 1000, checked: value.sudo1.options[1] },
+            { name: 'opt3', definition: 'Along with options 1 and 2 will also be able to post and edit content.', value: 1500, checked: value.sudo1.options[2] },
+            { name: 'opt4', definition: 'All of the above, and members can also like and comment on others work.', value: 2000, checked: value.sudo1.options[3] }
+          ]}
+        /> : null}
+        <Input
+          id='option2'
+          value={400}
+          label='Employee Login'
+          type='checkbox'
+          checked={value.option2}
+          onChange={update}
+        />
+        {value.option2 ? <Scale
+          id="sudo2"
+          onChange={updateScale}
+          options={[
+            { name: 'opt1', definition: 'Basic login to veiw employee only features or information.', value: 500, checked: value.sudo2.options[0] },
+            { name: 'opt2', definition: 'Including the basics employees will also have a profile section where they can customize their info.', value: 1000, checked: value.sudo2.options[1] },
+            { name: 'opt3', definition: 'Along with the first 2 employees will also be able to post/store and edit content.', value: 1500, checked: value.sudo2.options[2] },
+          ]}
+        /> : null}
+        <Input
+          id='option3'
+          value={500}
+          label='eCommerce'
+          type='checkbox'
+          checked={value.option3}
+          onChange={update}
+        />
+        {value.option3 ? (
+          <div>
+            <Scale
+              id="sudo3"
+              onChange={updateScale}
+              options={[
+                { name: 'opt1', definition: 'eCommerce items and pages route to a different website (shopify, amazon, ect)', value: 200, checked: value.sudo3.options[0] },
+                { name: 'opt2', definition: 'Built off shopify: we build you a basic site shopify site, with limited customization, but clean user flow and experience. ', value: 1000, checked: value.sudo3.options[1] },
+                { name: 'opt3', definition: 'The more customizable version of option 2.', value: 1800, checked: value.sudo3.options[2] },
+              ]}
+            />
+            <textarea className="pl-2 ml-3 col-11" placeholder="Any additional info about your eCommerce needs?" id="message" onChange={typing}>{value.message}</textarea>
+          </div>
+        ) : null}
+      </div>
+    </form>
     </div>
 
   )

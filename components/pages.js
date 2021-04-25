@@ -5,30 +5,30 @@ import layout from 'styles/layout.module.scss'
 import global from 'styles/global.module.scss'
 
 export default (props) => {
-	let value = props.value;
-    let update = (e, def) =>{
-		let option = `${e.target.id}`; 
-		let val = Number(e.target.value);
-        props.update({
-			siteType: option, 
-			design: (value.pages * 100) + val,
-			subtotal: (value.pages * 100) + val,
-			pages: value.pages
-		}, "pages", def)
-	}
-	let pageNumber = (e, def) => {
-		let val = Number(e.target.value)
-		props.update({
-			siteType: value.siteType,
-			pages: val, 
-			design: value.design + (val * 100),
-			subtotal: value.design + (val * 100),
-		}, "pages", def)
-	}
+  let value = props.value;
+  let update = (e, def) => {
+    let option = `${e.target.id}`;
+    let val = Number(e.target.value);
+    props.update({
+      siteType: option,
+      design: (value.pages * 100) + val,
+      subtotal: (value.pages * 100) + val,
+      pages: value.pages
+    }, "pages", def)
+  }
+  let pageNumber = (e, def) => {
+    let val = Number(e.target.value)
+    props.update({
+      siteType: value.siteType,
+      pages: val,
+      design: value.design + (val * 100),
+      subtotal: value.design + (val * 100),
+    }, "pages", def)
+  }
   return (
-    <form className="d-flex flex-column flex-wrap flex-row justify-content-center align-items-around">
+    <form className={cx(layout.f_col, layout.f_wrap, layout.justify_center, layout.align_around)}>
       <h3 className="mb-3">Lets Start With Pages</h3>
-      <div className="col-12 align-items-center">
+      <div className={cx(layout.col_10)}>
         <Input
           id='basic'
           value={240}

@@ -4,7 +4,7 @@ import layout from 'styles/layout.module.scss'
 import global from 'styles/global.module.scss'
 import { InfoForm, Pages, BasicNeeds, BackEndNeeds, PriceBox, Button } from 'components/router.js';
 
-export default (props) => {
+export default () => {
 
 	const [info, setInfo] = useState({
 		pages: {
@@ -90,8 +90,8 @@ export default (props) => {
 	]
 
 	return (
-		<div className='container flex-wrap flex-row d-flex justify-content-center align-items-center'>
-			<div className="col-12 col-md-8">
+    <div className={cx(layout.container, global.card, layout.f_row, layout.f_wrap, layout.justify_center, layout.align_center)}>
+			<div className={cx(layout.col_10_mob, layout.col_7)}>
 				<div>
 					<h4>
 						Step {spot + 1} of {cards.length}
@@ -101,12 +101,12 @@ export default (props) => {
 				<div>
 					{definition}
 				</div>
-				<div className="my-4 pr-md-5 pr-3 d-flex justify-content-end col-12">
-					{spot !== 0 ? <Button size='lg' simple onClick={prev}>Previous</Button> : null}
-					{spot !== cards.length - 1 ? <Button size='lg' onClick={next}>Next</Button> : null}
+				<div className={cx(layout.f_col, layout.f_wrap, layout.justify_center, layout.align_around)}>
+					{spot !== 0 && <Button simple onClick={prev}>Previous</Button>}
+					{spot !== cards.length - 1 && <Button onClick={next}>Next</Button> }
 				</div>
 			</div>
-			<div className="col-12 col-md-4">
+			<div className={cx(layout.col_10_mob, layout.col_3)}>
 				<PriceBox pages={info.pages.subtotal} design={info.basicNeeds.subtotal} programming={info.backEndNeeds.subtotal} />
 			</div>
 		</div>
