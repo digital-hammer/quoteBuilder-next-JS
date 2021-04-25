@@ -1,0 +1,164 @@
+import { useState, useEffect, useRef } from 'react'
+import cx from 'classnames'
+import Input from 'components/input'
+
+import layout from 'styles/layout.module.scss'
+import global from 'styles/global.module.scss'
+
+export default (props) => {
+  let value = props.value;
+  let typing = (e) => {
+      let newSet = {...value},
+          id = e.target.id,
+          inner = e.target.value;
+      newSet[id] = inner;
+      props.update({...newSet}, "backEndNeeds", " Any additional info about your eCommerce needs?");    
+  }
+
+  let update = (e, def) => {
+      let newSet = {...value};
+      let id = e.target.id,
+       x = Number(e.target.value);
+      newSet[id] = !newSet[id];
+      newSet[id] ? newSet.subtotal += x : newSet.subtotal -= x;
+      props.update({...newSet}, "backEndNeeds", def);    
+  }
+  let updateScale = (e, id, i) => {
+      let newSet = {...value};
+      newSet.subtotal -= newSet[id].subtotal;
+      for (let j = 0; j < newSet[id].options.length; j++){
+          newSet[id].options[j] = j === i ? true : false;
+      }
+      newSet[id].subtotal = Number(e);
+      newSet.subtotal += newSet[id].subtotal;
+      props.update({...newSet}, "backEndNeeds", '');    
+
+  }
+
+  return (
+    <div subtotal={value.subtotal}>
+      <form className="d-flex flex-column flex-wrap flex-md-row justify-content-start align-items-around">
+        <h3>
+          Basic Pages Needs
+					</h3>
+        <h5>
+          Do you plan to include any of these types of pages in your site?
+					</h5>
+        <div className="col-12 col-md-6 d-flex flex-column justify-content-start align-items-start">
+
+          <Input
+            id='option1'
+            value={220}
+            label='Blog'
+            type='checkbox'
+            checked={value.option1}
+            onChange={update}
+            definition='Blog Page'
+          />
+
+          <Input
+            id='option2'
+            value={330}
+            label='Events'
+            type='checkbox'
+            checked={value.option2}
+            onChange={update}
+            definition='Events Page'
+          />
+          <Input
+            id='option3'
+            value={220}
+            label='Specials'
+            type='checkbox'
+            checked={value.option3}
+            onChange={update}
+            definition='Specials Page'
+          />
+          <Input
+            id='option4'
+            value={220}
+            label={`FAQ's`}
+            type='checkbox'
+            checked={value.option4}
+            onChange={update}
+            definition=''
+          />
+          <Input
+            id='option5'
+            value={220}
+            label='Staff/Board Members'
+            type='checkbox'
+            checked={value.option5}
+            onChange={update}
+            definition='Staff or Board Members Page'
+          />
+          <Input
+            id='option6'
+            value={220}
+            label='News/Press Releases'
+            type='checkbox'
+            checked={value.option6}
+            onChange={update}
+            definition='News or Press Release Page'
+          />
+          <Input
+            id='option7'
+            value={330}
+            label='Clients'
+            type='checkbox'
+            checked={value.option7}
+            onChange={update}
+            definition='Clients Page'
+          />
+          <Input
+            id='option8'
+            value={220}
+            label='Resources or Documentation Library'
+            type='checkbox'
+            checked={value.option8}
+            onChange={update}
+            definition='Resources or Documentation Library Page'
+          />
+          <Input
+            id='option9'
+            value={330}
+            label='Projects/Portfolio'
+            type='checkbox'
+            checked={value.option9}
+            onChange={update}
+            definition='Projects or Portfolio Page'
+          />
+          <Input
+            id='option10'
+            value={110}
+            label='Sponsors'
+            type='checkbox'
+            checked={value.option10}
+            onChange={update}
+            definition='Sponsors Page'
+          />
+          <Input
+            id='option11'
+            value={220}
+            label='Careers/Jobs'
+            type='checkbox'
+            checked={value.option11}
+            onChange={update}
+            definition='Careers or Jobs Page'
+          />
+          <Input
+            id='option12'
+            value={110}
+            label='Testimonials'
+            type='checkbox'
+            checked={value.option12}
+            onChange={update}
+            definition='Testeomnials Page'
+          />
+        </div>
+      </form>
+    </div>
+
+  )
+
+}
