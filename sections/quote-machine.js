@@ -90,7 +90,7 @@ export default () => {
 	]
 
 	return (
-    <div className={cx(layout.container, global.card, layout.f_row, layout.f_wrap, layout.justify_around, layout.align_center)}>
+    <div className={cx(layout.container, global.quote_card, layout.f_row, layout.f_wrap, layout.justify_around, layout.align_center)}>
 			<div className={cx(layout.block_10_mob, layout.block_7)}>
 				<h4>
 					Step {spot + 1} of {cards.length}
