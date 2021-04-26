@@ -26,50 +26,41 @@ export default (props) => {
     }, "pages", def)
   }
   return (
-    <form className={cx(layout.f_col, layout.f_wrap, layout.justify_center, layout.align_around)}>
-      <h3 className="mb-3">Lets Start With Pages</h3>
-      <div className={cx(layout.col_10)}>
-        <Input
-          id='basic'
-          value={240}
-          label='Fast Design with Less Consulting & Meetings'
-          type='radio'
-          checked={value.siteType === "basic"}
-          onChange={update}
-          definition='We build a templated site, with consoltations in the beginning to get the proper theme and styling. A more hands off approach.'
-        />
+    <form className={cx(layout.f_col, layout.f_wrap, layout.justify_around, layout.align_between)}>
+      <h3>Lets Start With Pages</h3>
+      <Input
+        id='basic'
+        value={240}
+        label='Fast Design with Less Consulting & Meetings'
+        type='radio'
+        checked={value.siteType === "basic"}
+        onChange={update}
+        definition='We build a templated site, with consoltations in the beginning to get the proper theme and styling. A more hands off approach.'
+      />
+      <Input
+        id='custom'
+        value={600}
+        label='Custom Website with Consultative Process'
+        type='radio'
+        checked={value.siteType === "custom"}
+        onChange={update}
+        definition='We build you a custom site, with multiple consaltations to get capture exactly what you invision, where you get to be a part of the large and small scale process.'
+      />
 
-      </div>
-      <div className="col-12 align-items-center">
-        <Input
-          id='custom'
-          value={600}
-          label='Custom Website with Consultative Process'
-          type='radio'
-          checked={value.siteType === "custom"}
-          onChange={update}
-          definition='We build you a custom site, with multiple consaltations to get capture exactly what you invision, where you get to be a part of the large and small scale process.'
-        />
-      </div>
-      <div className="my-4 col-12 d-flex flex-row align-items-center justify-content-start">
-
-        <Input
-          id='pages'
-          value={value.pages}
-          label='How many pages will you want custom built?'
-          type='number'
-          step='1'
-          min='0'
-          max='1000'
-          onChange={pageNumber}
-          className='page-num'
-          required
-          labelBefore
-          definition="This is the number of pages you will want us to build for you (Home, contact, ect.). Any page you won't want to build on your own."
-        />
-      </div>
-
-
+      <Input
+        id='pages'
+        value={value.pages}
+        label='How many pages will you want custom built?'
+        type='number'
+        step='1'
+        min='0'
+        max='1000'
+        onChange={pageNumber}
+        className={global.page_num}
+        required
+        labelBefore
+        definition="This is the number of pages you will want us to build for you (Home, contact, ect.). Any page you won't want to build on your own."
+      />
     </form>
   )
 }

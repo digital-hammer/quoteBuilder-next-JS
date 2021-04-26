@@ -19,124 +19,122 @@ export default (props) => {
 
   return (
     <form className={cx(layout.f_col, layout.f_wrap, layout.justify_center, layout.align_around)}>
-    <h3>
-      Basic Pages Needs
+      <h3>
+        Basic Pages Needs
       </h3>
-    <h5>
-      Do you plan to include any of these types of pages in your site?
+      <h5>
+        Do you plan to include any of these types of pages in your site?
       </h5>
-      <div className={cx(layout.col_10_mob, layout.col_5, layout.f_col, layout.f_wrap, layout.justify_start, layout.align_start)}>
-
-      <Input
-        id='option1'
-        value={220}
-        label='Blog'
-        type='checkbox'
-        checked={value.option1}
-        onChange={update}
-        definition='Blog Page'
-      />
-
-      <Input
-        id='option2'
-        value={330}
-        label='Events'
-        type='checkbox'
-        checked={value.option2}
-        onChange={update}
-        definition='Events Page'
-      />
-      <Input
-        id='option3'
-        value={220}
-        label='Specials'
-        type='checkbox'
-        checked={value.option3}
-        onChange={update}
-        definition='Specials Page'
-      />
-      <Input
-        id='option4'
-        value={220}
-        label={`FAQ's`}
-        type='checkbox'
-        checked={value.option4}
-        onChange={update}
-        definition=''
-      />
-      <Input
-        id='option5'
-        value={220}
-        label='Staff/Board Members'
-        type='checkbox'
-        checked={value.option5}
-        onChange={update}
-        definition='Staff or Board Members Page'
-      />
-      <Input
-        id='option6'
-        value={220}
-        label='News/Press Releases'
-        type='checkbox'
-        checked={value.option6}
-        onChange={update}
-        definition='News or Press Release Page'
-      />
-      <Input
-        id='option7'
-        value={330}
-        label='Clients'
-        type='checkbox'
-        checked={value.option7}
-        onChange={update}
-        definition='Clients Page'
-      />
-      <Input
-        id='option8'
-        value={220}
-        label='Resources or Documentation Library'
-        type='checkbox'
-        checked={value.option8}
-        onChange={update}
-        definition='Resources or Documentation Library Page'
-      />
-      <Input
-        id='option9'
-        value={330}
-        label='Projects/Portfolio'
-        type='checkbox'
-        checked={value.option9}
-        onChange={update}
-        definition='Projects or Portfolio Page'
-      />
-      <Input
-        id='option10'
-        value={110}
-        label='Sponsors'
-        type='checkbox'
-        checked={value.option10}
-        onChange={update}
-        definition='Sponsors Page'
-      />
-      <Input
-        id='option11'
-        value={220}
-        label='Careers/Jobs'
-        type='checkbox'
-        checked={value.option11}
-        onChange={update}
-        definition='Careers or Jobs Page'
-      />
-      <Input
-        id='option12'
-        value={110}
-        label='Testimonials'
-        type='checkbox'
-        checked={value.option12}
-        onChange={update}
-        definition='Testeomnials Page'
-      />
-    </div>
-  </form>
+      <div className={cx(layout.block_10_mob, layout.block_5, layout.f_col, layout.f_wrap, layout.justify_start, layout.align_start)}>
+        <Input
+          id='option1'
+          value={220}
+          label='Blog'
+          type='checkbox'
+          checked={value.option1}
+          onChange={update}
+          definition='Blog Page'
+        />
+        <Input
+          id='option2'
+          value={330}
+          label='Events'
+          type='checkbox'
+          checked={value.option2}
+          onChange={update}
+          definition='Events Page'
+        />
+        <Input
+          id='option3'
+          value={220}
+          label='Specials'
+          type='checkbox'
+          checked={value.option3}
+          onChange={update}
+          definition='Specials Page'
+        />
+        <Input
+          id='option4'
+          value={220}
+          label={`FAQ's`}
+          type='checkbox'
+          checked={value.option4}
+          onChange={update}
+          definition=''
+        />
+        <Input
+          id='option5'
+          value={220}
+          label='Staff/Board Members'
+          type='checkbox'
+          checked={value.option5}
+          onChange={update}
+          definition='Staff or Board Members Page'
+        />
+        <Input
+          id='option6'
+          value={220}
+          label='News/Press Releases'
+          type='checkbox'
+          checked={value.option6}
+          onChange={update}
+          definition='News or Press Release Page'
+        />
+        <Input
+          id='option7'
+          value={330}
+          label='Clients'
+          type='checkbox'
+          checked={value.option7}
+          onChange={update}
+          definition='Clients Page'
+        />
+        <Input
+          id='option8'
+          value={220}
+          label='Resources or Documentation Library'
+          type='checkbox'
+          checked={value.option8}
+          onChange={update}
+          definition='Resources or Documentation Library Page'
+        />
+        <Input
+          id='option9'
+          value={330}
+          label='Projects/Portfolio'
+          type='checkbox'
+          checked={value.option9}
+          onChange={update}
+          definition='Projects or Portfolio Page'
+        />
+        <Input
+          id='option10'
+          value={110}
+          label='Sponsors'
+          type='checkbox'
+          checked={value.option10}
+          onChange={update}
+          definition='Sponsors Page'
+        />
+        <Input
+          id='option11'
+          value={220}
+          label='Careers/Jobs'
+          type='checkbox'
+          checked={value.option11}
+          onChange={update}
+          definition='Careers or Jobs Page'
+        />
+        <Input
+          id='option12'
+          value={110}
+          label='Testimonials'
+          type='checkbox'
+          checked={value.option12}
+          onChange={update}
+          definition='Testeomnials Page'
+        />
+      </div>
+    </form>
   )
 }

@@ -21,38 +21,33 @@ export default (props) => {
       <h3>
         Get Your Quote
       </h3>
-      <form className={cx(layout.f_col, layout.f_wrap, layout.justify_center, layout.align_around)}>
-        <div className={cx(layout.col_12_mob, layout.col_7)}>
-          <Input
-            id='name'
-            value={value.name}
-            placeholder=' Name'
-            type='text'
-            onChange={typing}
-          />
-        </div>
-        <div className={cx(layout.col_10_mob, layout.col_5)}>
-          <Input
-            id='phone'
-            value={value.phone}
-            placeholder=' Phone'
-            type='phone'
-            onChange={typing}
-          />
-        </div>
-        <div className={cx(layout.col_10_mob, layout.col_5)}>
-          <Input
-            id='email'
-            value={value.email}
-            placeholder=' Email'
-            type='text'
-            onChange={typing}
-          />
-        </div>
-        <div className={cx(layout.col_10)}>
-          <textarea placeholder="Message" id="message" onChange={typing}>{value.message}</textarea>
-        </div>
-        <div className={cx(layout.f_row, layout.justify_end, layout.col_10)}>
+      <form className={cx(layout.f_row, layout.f_wrap, layout.justify_between)}>
+        <Input
+          id='name'
+          value={value.name}
+          placeholder=' Name'
+          type='text'
+          onChange={typing}
+          className={cx(layout.block_12_mob, layout.block_5)}
+        />
+        <Input
+          id='phone'
+          value={value.phone}
+          placeholder=' Phone'
+          type='phone'
+          onChange={typing}
+          className={cx(layout.block_12_mob, layout.block_6)}
+        />
+        <Input
+          id='email'
+          value={value.email}
+          placeholder=' Email'
+          type='text'
+          onChange={typing}
+          className={cx(layout.block_12)}
+        />
+        <textarea placeholder="Message" id="message" onChange={typing}>{value.message}</textarea>
+        <div className={cx(layout.f_row, layout.justify_end, layout.block_12)}>
           <Button type='button' simple onClick={props.submitForm}>Submit Form</Button>
         </div>
       </form>

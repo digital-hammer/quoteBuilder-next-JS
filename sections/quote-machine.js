@@ -90,23 +90,21 @@ export default () => {
 	]
 
 	return (
-    <div className={cx(layout.container, global.card, layout.f_row, layout.f_wrap, layout.justify_center, layout.align_center)}>
-			<div className={cx(layout.col_10_mob, layout.col_7)}>
-				<div>
-					<h4>
-						Step {spot + 1} of {cards.length}
-					</h4>
-				</div>
+    <div className={cx(layout.container, global.card, layout.f_row, layout.f_wrap, layout.justify_around, layout.align_center)}>
+			<div className={cx(layout.block_10_mob, layout.block_7)}>
+				<h4>
+					Step {spot + 1} of {cards.length}
+				</h4>
 				{cards[spot]}
 				<div>
 					{definition}
 				</div>
-				<div className={cx(layout.f_col, layout.f_wrap, layout.justify_center, layout.align_around)}>
+				<div className={cx(layout.f_row, layout.f_wrap, layout.justify_end, layout.align_around)}>
 					{spot !== 0 && <Button simple onClick={prev}>Previous</Button>}
 					{spot !== cards.length - 1 && <Button onClick={next}>Next</Button> }
 				</div>
 			</div>
-			<div className={cx(layout.col_10_mob, layout.col_3)}>
+			<div className={cx(layout.block_10_mob, layout.block_4)}>
 				<PriceBox pages={info.pages.subtotal} design={info.basicNeeds.subtotal} programming={info.backEndNeeds.subtotal} />
 			</div>
 		</div>
